@@ -1,9 +1,10 @@
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.*;
 
-public class Personas {
+public class Personas extends Component {
     private JPanel rootPanel;
     private JTextField textField1;
     private JTextField textField2;
@@ -17,14 +18,15 @@ public class Personas {
     private JButton BotonActualizar;
     private JButton BotonIngresar;
     private JButton Limpiar;
-    static final String DB_URL = "jdbc:mysql://localhost/prueba";
+    static final String DB_URL = "jdbc:mysql://localhost/usuarios";
     static final String USER = "root";
     static final String PASS = "root_bas3";
     public Personas() {
         BusquedaCodigo.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
+                String codigo = textField1.getText();
+                buscarProductoPorCodigo(codigo);
             }
         });
         BusquedaNombre.addActionListener(new ActionListener() {
@@ -149,6 +151,40 @@ public class Personas {
                 textField4.setText("");
             }
         });
+    }
+
+    private void buscarProductoPorCodigo(String codigo) {
+        try {
+            Connection connection = DriverManager.getConnection(DB_URL, USER, PASS);
+            String query = "SELECT Nombre, Cedula, Nacimiento, Edad FROM USUARIOS WHERE Codigo = ?";
+            PreparedStatement preparedStatement = connection.prepareStatement(query);
+            preparedStatement.setString(1, codigo);
+
+            ResultSet resultSet = preparedStatement.executeQuery();
+            if (resultSet.next()) {
+                String Nombre = resultSet.getString("Nombre");
+                String Cedula = resultSet.getString("Cedula");
+                String Nacimiento = resultSet.getString("Nacimiento");
+                String Edad = resultSet.getString("Edad");
+
+                textField1.setText(Nombre);
+                textField2.setText(Cedula);
+                textField3.setText(Nacimiento);
+                textField4.setText(Edad);
+                comboBox1.addItem(Edad);
+            } else {
+                textField1.setText("");
+                textField2.setText("");
+                textField3.setText("");
+                textField4.setText("");
+                JOptionPane.showMessageDialog(this, "Producto no encontrado.");
+            }
+
+            connection.close();
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+            JOptionPane.showMessageDialog(this, "Error al buscar el producto: " + ex.getMessage());
+        }
     }
 
     public static void main(String[] args) {
