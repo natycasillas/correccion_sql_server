@@ -34,10 +34,12 @@
 ### 5. Conexión a la base de Datos
 | Generar la cadena de conexión                                                                                                                                                                                                                                 |
 |---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| **Comprobación de la conexión**                                                                                                                                                                                                                               |
+|![img.png](img/img37.png)|
 | En ella se indica el servidor, la instancia, el número de puerto, el nombre de la base de datos y para evitar problemas de conexión segura se debe añadir el sufijo ***encrypt=true; trustServerCertificate=true;***                                          |
-| ![img_5.png](img/img_5.png)                                                                                                                                                                                                                                       |
+| ![img_5.png](img/img_5.png)                                                                                                                                                                                                                                   |
 | **Uso de la clase Connection**: crear un objeto de la misma, este junto al *DriverManager* nos permitirá controlar la conexión. Al método *.getConnection* se le enviarán como argumentos la cadena de conexión, el usuario y contraseña creados previamente. |
-| ![img_6.png](img/img_6.png)                                                                                                                                                                                                                                       |
+| ![img_6.png](img/img_6.png)                                                                                                                                                                                                                                   |
 
 ### 6. Inserción de Datos
 | Añadir un evento al botón Ingresar                                                                                                              |
