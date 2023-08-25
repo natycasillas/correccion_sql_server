@@ -18,7 +18,6 @@ public class Personas extends Component {
     private JButton btn_actualizar;
     private JButton btn_ingresar;
     private JButton btn_limpiar;
-    //jdbc:sqlserver://LAPTOP-UC5S954V\MSSQLSERVER01:55580;database=PERSONAS
     static final String DB_URL = "jdbc:sqlserver://LAPTOP-UC5S954V\\MSSQLSERVER01:55580;database=PERSONAS;encrypt=true;trustServerCertificate=true;";
     static final String USER = "userJ";
     static final String PASS = "123";
