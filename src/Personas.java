@@ -6,48 +6,48 @@ import java.sql.*;
 
 public class Personas extends Component {
     private JPanel rootPanel;
-    private JTextField textField1; //
-    private JTextField textField2;
-    private JTextField textField3;
-    private JTextField textField4;
-    private JButton BusquedaCodigo;
-    private JButton BusquedaNombre;
-    private JComboBox comboBox1;
-    private JButton BusquedaSigno;
-    private JButton BorrarRegistro;
-    private JButton BotonActualizar;
-    private JButton BotonIngresar;
-    private JButton Limpiar;
+    private JTextField txt_codigo;
+    private JTextField txt_cedula;
+    private JTextField txt_nombre;
+    private JTextField txt_fechaN;
+    private JButton boton_buscarCodigo;
+    private JButton btn_buscarNombre;
+    private JComboBox signoZ;
+    private JButton btn_buscarsigno;
+    private JButton btn_borrar;
+    private JButton btn_actualizar;
+    private JButton btn_ingresar;
+    private JButton btn_limpiar;
     //jdbc:sqlserver://LAPTOP-UC5S954V\MSSQLSERVER01:55580;database=PERSONAS
     static final String DB_URL = "jdbc:sqlserver://LAPTOP-UC5S954V\\MSSQLSERVER01:55580;database=PERSONAS;encrypt=true;trustServerCertificate=true;";
     static final String USER = "userJ";
     static final String PASS = "123";
     public Personas() {
-        BusquedaCodigo.addActionListener(new ActionListener() {
+        boton_buscarCodigo.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                String codigo = textField1.getText();
+                String codigo = txt_codigo.getText();
                 buscarProductoPorCodigo(codigo);
             }
         });
-        BusquedaNombre.addActionListener(new ActionListener() {
+        btn_buscarNombre.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                String nombre = textField3.getText();
+                String nombre = txt_nombre.getText();
                 buscarProductoPorNombre(nombre);
             }
         });
-        BusquedaSigno.addActionListener(new ActionListener() {
+        btn_buscarsigno.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                String signo = comboBox1.getSelectedItem().toString();
+                String signo = signoZ.getSelectedItem().toString();
                 buscarProductoPorSigno(signo);
             }
         });
-        BorrarRegistro.addActionListener(new ActionListener() {
+        btn_borrar.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                String codigoRegistroABorrar = textField1.getText();
+                String codigoRegistroABorrar = txt_codigo.getText();
                 try (
                         Connection conn = DriverManager.getConnection(DB_URL, USER, PASS);
                 ) {
@@ -72,14 +72,14 @@ public class Personas extends Component {
                 }
             }
         });
-        BotonActualizar.addActionListener(new ActionListener() {
+        btn_actualizar.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                String CODIGON = textField1.getText();
-                String CEDULAN = textField2.getText();
-                String NOMBREN = textField3.getText();
-                String NACIMIENTON = textField4.getText();
-                String SIGNON = comboBox1.getSelectedItem().toString();
+                String CODIGON = txt_codigo.getText();
+                String CEDULAN = txt_cedula.getText();
+                String NOMBREN = txt_nombre.getText();
+                String NACIMIENTON = txt_fechaN.getText();
+                String SIGNON = signoZ.getSelectedItem().toString();
                 try (
                         Connection conn = DriverManager.getConnection(DB_URL, USER, PASS);
                 ){
@@ -109,14 +109,14 @@ public class Personas extends Component {
                 }
             }
         });
-        BotonIngresar.addActionListener(new ActionListener() {
+        btn_ingresar.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                String CODIGOF = textField1.getText();
-                String CEDULAF = textField2.getText();
-                String NOMBREF = textField3.getText();
-                String NACIMIENTOF = textField4.getText();
-                String SIGNOF = comboBox1.getSelectedItem().toString();
+                String CODIGOF = txt_codigo.getText();
+                String CEDULAF = txt_cedula.getText();
+                String NOMBREF = txt_nombre.getText();
+                String NACIMIENTOF = txt_fechaN.getText();
+                String SIGNOF = signoZ.getSelectedItem().toString();
                 try (
                         Connection conn = DriverManager.getConnection(DB_URL, USER, PASS);
                 ) {
@@ -146,13 +146,13 @@ public class Personas extends Component {
                 }
             }
         });
-        Limpiar.addActionListener(new ActionListener() {
+        btn_limpiar.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                textField1.setText("");
-                textField2.setText("");
-                textField3.setText("");
-                textField4.setText("");
+                txt_codigo.setText("");
+                txt_cedula.setText("");
+                txt_nombre.setText("");
+                txt_fechaN.setText("");
             }
         });
     }
@@ -171,15 +171,15 @@ public class Personas extends Component {
                 String Nacimiento = resultSet.getString("Nacimiento");
                 String Signo = resultSet.getString("Signo");
 
-                textField2.setText(Nombre);
-                textField3.setText(Cedula);
-                textField4.setText(Nacimiento);
-                comboBox1.addItem(Signo);
+                txt_cedula.setText(Nombre);
+                txt_nombre.setText(Cedula);
+                txt_fechaN.setText(Nacimiento);
+                signoZ.addItem(Signo);
             } else {
-                textField1.setText("");
-                textField2.setText("");
-                textField3.setText("");
-                textField4.setText("");
+                txt_codigo.setText("");
+                txt_cedula.setText("");
+                txt_nombre.setText("");
+                txt_fechaN.setText("");
                 JOptionPane.showMessageDialog(this, "Registro no encontrado.");
             }
 
@@ -204,15 +204,15 @@ public class Personas extends Component {
                 String Nacimiento = resultSet.getString("Nacimiento");
                 String Signo = resultSet.getString("Signo");
 
-                textField1.setText(Codigo);
-                textField2.setText(Cedula);
-                textField4.setText(Nacimiento);
-                comboBox1.addItem(Signo);
+                txt_codigo.setText(Codigo);
+                txt_cedula.setText(Cedula);
+                txt_fechaN.setText(Nacimiento);
+                signoZ.addItem(Signo);
             } else {
-                textField1.setText("");
-                textField2.setText("");
-                textField3.setText("");
-                textField4.setText("");
+                txt_codigo.setText("");
+                txt_cedula.setText("");
+                txt_nombre.setText("");
+                txt_fechaN.setText("");
                 JOptionPane.showMessageDialog(this, "Registro no encontrado.");
             }
 
@@ -237,10 +237,10 @@ public class Personas extends Component {
                 String Nombre = resultSet.getString("Nombre");
                 String Nacimiento = resultSet.getString("Nacimiento");
 
-                textField1.setText(Codigo);
-                textField2.setText(Cedula);
-                textField3.setText(Nombre);
-                textField4.setText(Nacimiento);
+                txt_codigo.setText(Codigo);
+                txt_cedula.setText(Cedula);
+                txt_nombre.setText(Nombre);
+                txt_fechaN.setText(Nacimiento);
                 System.out.println("Los siguientes registros son:");
                 while (resultSet.next()){
                     System.out.println("Codigo: "+resultSet.getString("Codigo"));
@@ -249,10 +249,10 @@ public class Personas extends Component {
                     System.out.println("Nacimiento: "+resultSet.getString("Nacimiento"));
                 }
             } else {
-                textField1.setText("");
-                textField2.setText("");
-                textField3.setText("");
-                textField4.setText("");
+                txt_codigo.setText("");
+                txt_cedula.setText("");
+                txt_nombre.setText("");
+                txt_fechaN.setText("");
                 JOptionPane.showMessageDialog(this, "Registro no encontrado.");
             }
 

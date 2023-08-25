@@ -13,7 +13,7 @@
     </properties>
     <border type="none"/>
     <children>
-      <component id="a4b00" class="javax.swing.JTextField" binding="textField1" default-binding="true">
+      <component id="a4b00" class="javax.swing.JTextField" binding="txt_codigo">
         <constraints>
           <grid row="1" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
             <preferred-size width="316" height="30"/>
@@ -38,7 +38,7 @@
           <text value="Código"/>
         </properties>
       </component>
-      <component id="d2245" class="javax.swing.JTextField" binding="textField2" default-binding="true">
+      <component id="d2245" class="javax.swing.JTextField" binding="txt_cedula">
         <constraints>
           <grid row="2" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
             <preferred-size width="316" height="30"/>
@@ -46,7 +46,7 @@
         </constraints>
         <properties/>
       </component>
-      <component id="e1cd2" class="javax.swing.JTextField" binding="textField3" default-binding="true">
+      <component id="e1cd2" class="javax.swing.JTextField" binding="txt_nombre">
         <constraints>
           <grid row="3" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
             <preferred-size width="316" height="30"/>
@@ -54,7 +54,7 @@
         </constraints>
         <properties/>
       </component>
-      <component id="57511" class="javax.swing.JTextField" binding="textField4" default-binding="true">
+      <component id="57511" class="javax.swing.JTextField" binding="txt_fechaN">
         <constraints>
           <grid row="4" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
             <preferred-size width="316" height="30"/>
@@ -92,7 +92,7 @@
           <text value="Fecha de nacimiento"/>
         </properties>
       </component>
-      <component id="74cfe" class="javax.swing.JButton" binding="BusquedaCodigo">
+      <component id="74cfe" class="javax.swing.JButton" binding="boton_buscarCodigo">
         <constraints>
           <grid row="1" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false">
             <preferred-size width="146" height="30"/>
@@ -103,7 +103,7 @@
           <text value="Boton buscar por código"/>
         </properties>
       </component>
-      <component id="64fa6" class="javax.swing.JButton" binding="BusquedaNombre">
+      <component id="64fa6" class="javax.swing.JButton" binding="btn_buscarNombre">
         <constraints>
           <grid row="3" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false">
             <preferred-size width="146" height="30"/>
@@ -114,7 +114,7 @@
           <text value="Boton buscar por nombre"/>
         </properties>
       </component>
-      <component id="b517f" class="javax.swing.JComboBox" binding="comboBox1" default-binding="true">
+      <component id="b517f" class="javax.swing.JComboBox" binding="signoZ">
         <constraints>
           <grid row="5" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="8" fill="1" indent="0" use-parent-layout="false">
             <preferred-size width="316" height="30"/>
@@ -148,7 +148,7 @@
           <text value="Signo del Zodiaco"/>
         </properties>
       </component>
-      <component id="260cf" class="javax.swing.JButton" binding="BusquedaSigno">
+      <component id="260cf" class="javax.swing.JButton" binding="btn_buscarsigno">
         <constraints>
           <grid row="5" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false">
             <preferred-size width="146" height="30"/>
@@ -159,7 +159,7 @@
           <text value="Boton buscar por signo"/>
         </properties>
       </component>
-      <component id="d6c0d" class="javax.swing.JButton" binding="BorrarRegistro">
+      <component id="d6c0d" class="javax.swing.JButton" binding="btn_borrar">
         <constraints>
           <grid row="7" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false">
             <preferred-size width="144" height="30"/>
@@ -170,7 +170,7 @@
           <text value="Boton borrar el presente registro"/>
         </properties>
       </component>
-      <component id="13f31" class="javax.swing.JButton" binding="BotonActualizar">
+      <component id="13f31" class="javax.swing.JButton" binding="btn_actualizar">
         <constraints>
           <grid row="7" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false">
             <preferred-size width="316" height="30"/>
@@ -181,7 +181,7 @@
           <text value="Boton actualizar el presente registro"/>
         </properties>
       </component>
-      <component id="238de" class="javax.swing.JButton" binding="BotonIngresar">
+      <component id="238de" class="javax.swing.JButton" binding="btn_ingresar">
         <constraints>
           <grid row="7" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false">
             <preferred-size width="146" height="30"/>
@@ -192,7 +192,7 @@
           <text value="Boton ingresar el presente registro"/>
         </properties>
       </component>
-      <component id="f0164" class="javax.swing.JButton" binding="Limpiar">
+      <component id="f0164" class="javax.swing.JButton" binding="btn_limpiar">
         <constraints>
           <grid row="8" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false">
             <preferred-size width="316" height="30"/>
