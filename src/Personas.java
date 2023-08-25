@@ -18,8 +18,8 @@ public class Personas extends Component {
     private JButton BotonActualizar;
     private JButton BotonIngresar;
     private JButton Limpiar;
-    static final String DB_URL = "jdbc:mysql://localhost/usuarios";
-    static final String USER = "root";
+    static final String DB_URL = "jdbc:sqlserver://DESKTOP-JF28VRO\\MSSQLSERVER:1433;database=PERSONAS";
+    static final String USER = "sa";
     static final String PASS = "root_bas3";
     public Personas() {
         BusquedaCodigo.addActionListener(new ActionListener() {
@@ -32,13 +32,15 @@ public class Personas extends Component {
         BusquedaNombre.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
+                String nombre = textField3.getText();
+                buscarProductoPorNombre(nombre);
             }
         });
         BusquedaSigno.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
+                String signo = comboBox1.getSelectedItem().toString();
+                buscarProductoPorSigno(signo);
             }
         });
         BorrarRegistro.addActionListener(new ActionListener() {
@@ -156,37 +158,101 @@ public class Personas extends Component {
     private void buscarProductoPorCodigo(String codigo) {
         try {
             Connection connection = DriverManager.getConnection(DB_URL, USER, PASS);
-            String query = "SELECT Nombre, Cedula, Nacimiento, Edad FROM USUARIOS WHERE Codigo = ?";
+            String query = "SELECT Cedula, Nombre, Nacimiento, Signo FROM USUARIOS WHERE Codigo = ?";
             PreparedStatement preparedStatement = connection.prepareStatement(query);
             preparedStatement.setString(1, codigo);
 
             ResultSet resultSet = preparedStatement.executeQuery();
             if (resultSet.next()) {
-                String Nombre = resultSet.getString("Nombre");
                 String Cedula = resultSet.getString("Cedula");
+                String Nombre = resultSet.getString("Nombre");
                 String Nacimiento = resultSet.getString("Nacimiento");
-                String Edad = resultSet.getString("Edad");
+                String Signo = resultSet.getString("Signo");
 
-                textField1.setText(Nombre);
-                textField2.setText(Cedula);
-                textField3.setText(Nacimiento);
-                textField4.setText(Edad);
-                comboBox1.addItem(Edad);
+                textField2.setText(Nombre);
+                textField3.setText(Cedula);
+                textField4.setText(Nacimiento);
+                comboBox1.addItem(Signo);
             } else {
                 textField1.setText("");
                 textField2.setText("");
                 textField3.setText("");
                 textField4.setText("");
-                JOptionPane.showMessageDialog(this, "Producto no encontrado.");
+                JOptionPane.showMessageDialog(this, "Registro no encontrado.");
             }
 
             connection.close();
         } catch (SQLException ex) {
             ex.printStackTrace();
-            JOptionPane.showMessageDialog(this, "Error al buscar el producto: " + ex.getMessage());
+            JOptionPane.showMessageDialog(this, "Error al buscar el registro: " + ex.getMessage());
         }
     }
 
+    private void buscarProductoPorNombre(String nombre) {
+        try {
+            Connection connection = DriverManager.getConnection(DB_URL, USER, PASS);
+            String query = "SELECT Codigo, Cedula, Nacimiento, Signo FROM productos WHERE Nombre = ?";
+            PreparedStatement preparedStatement = connection.prepareStatement(query);
+            preparedStatement.setString(1, nombre);
+
+            ResultSet resultSet = preparedStatement.executeQuery();
+            if (resultSet.next()) {
+                String Codigo = resultSet.getString("Cedula");
+                String Cedula = resultSet.getString("Cedula");
+                String Nacimiento = resultSet.getString("Nacimiento");
+                String Signo = resultSet.getString("Signo");
+
+                textField1.setText(Codigo);
+                textField2.setText(Cedula);
+                textField4.setText(Nacimiento);
+                comboBox1.addItem(Signo);
+            } else {
+                textField1.setText("");
+                textField2.setText("");
+                textField3.setText("");
+                textField4.setText("");
+                JOptionPane.showMessageDialog(this, "Registro no encontrado.");
+            }
+
+            connection.close();
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+            JOptionPane.showMessageDialog(this, "Error al buscar el registro: " + ex.getMessage());
+        }
+    }
+
+    private void buscarProductoPorSigno(String signo) {
+        try {
+            Connection connection = DriverManager.getConnection(DB_URL, USER, PASS);
+            String query = "SELECT Codigo, Cedula, Nombre, Nacimiento FROM productos WHERE Signo = ?";
+            PreparedStatement preparedStatement = connection.prepareStatement(query);
+            preparedStatement.setString(1, signo);
+
+            ResultSet resultSet = preparedStatement.executeQuery();
+            if (resultSet.next()) {
+                String Codigo = resultSet.getString("Cedula");
+                String Cedula = resultSet.getString("Cedula");
+                String Nombre = resultSet.getString("Nombre");
+                String Nacimiento = resultSet.getString("Nacimiento");
+
+                textField1.setText(Codigo);
+                textField2.setText(Nombre);
+                textField4.setText(Cedula);
+                textField4.setText(Nacimiento);
+            } else {
+                textField1.setText("");
+                textField2.setText("");
+                textField3.setText("");
+                textField4.setText("");
+                JOptionPane.showMessageDialog(this, "Registro no encontrado.");
+            }
+
+            connection.close();
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+            JOptionPane.showMessageDialog(this, "Error al buscar el registro: " + ex.getMessage());
+        }
+    }
     public static void main(String[] args) {
         JFrame frame = new JFrame("Personas");
         frame.setContentPane(new Personas().rootPanel);
