@@ -199,7 +199,7 @@ public class Personas extends Component {
 
             ResultSet resultSet = preparedStatement.executeQuery();
             if (resultSet.next()) {
-                String Codigo = resultSet.getString("Cedula");
+                String Codigo = resultSet.getString("Codigo");
                 String Cedula = resultSet.getString("Cedula");
                 String Nacimiento = resultSet.getString("Nacimiento");
                 String Signo = resultSet.getString("Signo");
@@ -232,15 +232,22 @@ public class Personas extends Component {
 
             ResultSet resultSet = preparedStatement.executeQuery();
             if (resultSet.next()) {
-                String Codigo = resultSet.getString("Cedula");
+                String Codigo = resultSet.getString("Codigo");
                 String Cedula = resultSet.getString("Cedula");
                 String Nombre = resultSet.getString("Nombre");
                 String Nacimiento = resultSet.getString("Nacimiento");
 
                 textField1.setText(Codigo);
-                textField2.setText(Nombre);
-                textField4.setText(Cedula);
+                textField2.setText(Cedula);
+                textField3.setText(Nombre);
                 textField4.setText(Nacimiento);
+                System.out.println("Los siguientes registros son:");
+                while (resultSet.next()){
+                    System.out.println("Codigo: "+resultSet.getString("Codigo"));
+                    System.out.println("Cedula: "+resultSet.getString("Cedula"));
+                    System.out.println("Nombre: "+resultSet.getString("Nombre"));
+                    System.out.println("Nacimiento: "+resultSet.getString("Nacimiento"));
+                }
             } else {
                 textField1.setText("");
                 textField2.setText("");
