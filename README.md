@@ -1,9 +1,7 @@
-## Detalle de elaboración del programa
-### 1. Desarrollo de la interfaz gráfica
-|Creación de ventanas con Java Swing|
-|-|
-|![image](https://github.com/DavidPK8/CorreccionPrueba2Bimestre/assets/117743650/db825df7-b486-4d35-a3ca-6eedc59a4f0e)|
-|Gracias a este se construyen los elementos gráficos que va a interactuar con el código, el cual permitirá la realización de consultas con la base de datos|
+### 10. Diseño del Form
+| Diseño Final                                                                                                           |
+|------------------------------------------------------------------------------------------------------------------------|
+| ![imagen](https://github.com/DavidPK8/CorreccionPrueba2Bimestre/assets/117743650/497a5993-a0dc-4b63-8bfb-5e190c8af093) |
 ### 2. Creación de la Base de Datos en SQL Server Managament
 | Base de Datos: Personas                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
 |--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -97,7 +95,4 @@
 | Se realizará una búsqueda por el signo: *Cáncer*<br/>La primera incidencia que encuentre se mostrará en la interfaz, el resto registros que cumplan con la condición se mostrarán en consola. |
 | ![img_32.png](img/img_32.png)<br/>En el signo *Acuario* hay más de un registro con esa condición:![img_33.png](img/img_33.png)                                                                        |
 
-### 10. Diseño del Form
-| Diseño Final                                                                                                           |
-|------------------------------------------------------------------------------------------------------------------------|
-| ![imagen](https://github.com/DavidPK8/CorreccionPrueba2Bimestre/assets/117743650/497a5993-a0dc-4b63-8bfb-5e190c8af093) |
+
