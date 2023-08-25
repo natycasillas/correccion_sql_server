@@ -38,3 +38,11 @@
 | ![img_5.png](img_5.png)                                                                                                                                                                                                                                       |
 | **Uso de la clase Connection**: crear un objeto de la misma, este junto al *DriverManager* nos permitirá controlar la conexión. Al método *.getConnection* se le enviarán como argumentos la cadena de conexión, el usuario y contraseña creados previamente. |
 | ![img_6.png](img_6.png)                                                                                                                                                                                                                                       |
+
+### 6. Inserción de Datos
+| Añadir un evento al botón Ingresar                                                                                                              |
+|-------------------------------------------------------------------------------------------------------------------------------------------------|
+| Mediante un objeto de la clase PreparedStatement se ejecutará el query enviado como argumento del método preparedStatement del objeto conexión. |
+| ![img_7.png](img_7.png)                                                                                                                         |
+| **Prueba de la inserción de un registro en la tabla Persona**                                                                                   |
+|  ![img_8.png](img_8.png)                                                                                                                                               <br/>![img_9.png](img_9.png)|
