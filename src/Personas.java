@@ -264,10 +264,12 @@ public class Personas extends Component {
     }
     public static void main(String[] args) {
         JFrame frame = new JFrame("Personas");
-        frame.setContentPane(new Personas().rootPanel);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.pack();
+        frame.setContentPane(new Personas().rootPanel);
         frame.setVisible(true);
+        frame.setSize(900,400);
+        frame.setLocationRelativeTo(null);
     }
 }
 
