@@ -99,6 +99,6 @@
 | ![img_32.png](img/img_32.png)<br/>En el signo *Acuario* hay más de un registro con esa condición:![img_33.png](img/img_33.png)                                                                        |
 
 ### 10. Diseño del Form
-|Diseño Final|
-|-|
-|![imagen](https://github.com/DavidPK8/CorreccionPrueba2Bimestre/assets/117743650/497a5993-a0dc-4b63-8bfb-5e190c8af093)|
+| Diseño Final                                                                                                           |
+|------------------------------------------------------------------------------------------------------------------------|
+| ![imagen](https://github.com/DavidPK8/CorreccionPrueba2Bimestre/assets/117743650/497a5993-a0dc-4b63-8bfb-5e190c8af093) |
