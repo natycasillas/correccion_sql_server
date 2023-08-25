@@ -18,9 +18,10 @@ public class Personas extends Component {
     private JButton BotonActualizar;
     private JButton BotonIngresar;
     private JButton Limpiar;
-    static final String DB_URL = "jdbc:sqlserver://DESKTOP-JF28VRO\\MSSQLSERVER:1433;database=PERSONAS";
-    static final String USER = "sa";
-    static final String PASS = "root_bas3";
+    //jdbc:sqlserver://LAPTOP-UC5S954V\MSSQLSERVER01:55580;database=PERSONAS
+    static final String DB_URL = "jdbc:sqlserver://LAPTOP-UC5S954V\\MSSQLSERVER01:55580;database=PERSONAS;encrypt=true;trustServerCertificate=true;";
+    static final String USER = "userJ";
+    static final String PASS = "123";
     public Personas() {
         BusquedaCodigo.addActionListener(new ActionListener() {
             @Override
@@ -50,7 +51,7 @@ public class Personas extends Component {
                 try (
                         Connection conn = DriverManager.getConnection(DB_URL, USER, PASS);
                 ) {
-                    String sql = "DELETE FROM PERSONAS WHERE Codigo = " + codigoRegistroABorrar;
+                    String sql = "DELETE FROM PERSONA WHERE Codigo = " + codigoRegistroABorrar;
                     Statement statement = null;
                     try {
                         statement = conn.createStatement();
@@ -82,7 +83,7 @@ public class Personas extends Component {
                 try (
                         Connection conn = DriverManager.getConnection(DB_URL, USER, PASS);
                 ){
-                    String sql = "UPDATE PERSONAS SET Cedula = ?, Nombre = ?, Nacimiento = ?, Signo = ? WHERE Codigo = ?";
+                    String sql = "UPDATE PERSONA SET Cedula = ?, Nombre = ?, Nacimiento = ?, Signo = ? WHERE Codigo = ?";
 
                     PreparedStatement preparedStatement = conn.prepareStatement(sql);
 
@@ -119,7 +120,8 @@ public class Personas extends Component {
                 try (
                         Connection conn = DriverManager.getConnection(DB_URL, USER, PASS);
                 ) {
-                    String sql = "INSERT INTO PERSONAS (Codigo, Cedula, Nombre, Nacimiento, Signo) VALUES (?, ?, ?, ?, ?)";
+                    System.out.println("Conexión establecida");
+                    String sql = "INSERT INTO PERSONA (Codigo, Cedula, Nombre, Nacimiento, Signo) VALUES (?, ?, ?, ?, ?)";
                     PreparedStatement preparedStatement = conn.prepareStatement(sql);
                     try {
                         preparedStatement.setString(1, CODIGOF);
@@ -158,7 +160,7 @@ public class Personas extends Component {
     private void buscarProductoPorCodigo(String codigo) {
         try {
             Connection connection = DriverManager.getConnection(DB_URL, USER, PASS);
-            String query = "SELECT Cedula, Nombre, Nacimiento, Signo FROM USUARIOS WHERE Codigo = ?";
+            String query = "SELECT Cedula, Nombre, Nacimiento, Signo FROM PERSONA WHERE Codigo = ?";
             PreparedStatement preparedStatement = connection.prepareStatement(query);
             preparedStatement.setString(1, codigo);
 
@@ -191,7 +193,7 @@ public class Personas extends Component {
     private void buscarProductoPorNombre(String nombre) {
         try {
             Connection connection = DriverManager.getConnection(DB_URL, USER, PASS);
-            String query = "SELECT Codigo, Cedula, Nacimiento, Signo FROM productos WHERE Nombre = ?";
+            String query = "SELECT Codigo, Cedula, Nacimiento, Signo FROM PERSONA WHERE Nombre = ?";
             PreparedStatement preparedStatement = connection.prepareStatement(query);
             preparedStatement.setString(1, nombre);
 
@@ -224,7 +226,7 @@ public class Personas extends Component {
     private void buscarProductoPorSigno(String signo) {
         try {
             Connection connection = DriverManager.getConnection(DB_URL, USER, PASS);
-            String query = "SELECT Codigo, Cedula, Nombre, Nacimiento FROM productos WHERE Signo = ?";
+            String query = "SELECT Codigo, Cedula, Nombre, Nacimiento FROM PERSONA WHERE Signo = ?";
             PreparedStatement preparedStatement = connection.prepareStatement(query);
             preparedStatement.setString(1, signo);
 
