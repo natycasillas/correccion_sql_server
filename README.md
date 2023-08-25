@@ -1,4 +1,3 @@
-# CorreccionPrueba2Bimestre
 ## Detalle de elaboración del programa
 ### 1. Desarrollo de la interfaz gráfica
 |Creación de ventanas con Java Swing|
