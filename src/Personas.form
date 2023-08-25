@@ -99,7 +99,7 @@
           </grid>
         </constraints>
         <properties>
-          <background color="-6051073"/>
+          <background color="-10092673"/>
           <text value="Boton buscar por código"/>
         </properties>
       </component>
@@ -110,7 +110,7 @@
           </grid>
         </constraints>
         <properties>
-          <background color="-6051073"/>
+          <background color="-4718689"/>
           <text value="Boton buscar por nombre"/>
         </properties>
       </component>
@@ -155,7 +155,7 @@
           </grid>
         </constraints>
         <properties>
-          <background color="-6051073"/>
+          <background color="-7405720"/>
           <text value="Boton buscar por signo"/>
         </properties>
       </component>
@@ -166,7 +166,7 @@
           </grid>
         </constraints>
         <properties>
-          <background color="-6051073"/>
+          <background color="-6291552"/>
           <text value="Boton borrar el presente registro"/>
         </properties>
       </component>
@@ -177,7 +177,7 @@
           </grid>
         </constraints>
         <properties>
-          <background color="-6051073"/>
+          <background color="-7536742"/>
           <text value="Boton actualizar el presente registro"/>
         </properties>
       </component>
@@ -188,7 +188,7 @@
           </grid>
         </constraints>
         <properties>
-          <background color="-6051073"/>
+          <background color="-8061050"/>
           <text value="Boton ingresar el presente registro"/>
         </properties>
       </component>
@@ -199,7 +199,7 @@
           </grid>
         </constraints>
         <properties>
-          <background color="-6051073"/>
+          <background color="-5767256"/>
           <text value="Limpiar formulario"/>
         </properties>
       </component>
